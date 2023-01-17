@@ -1,6 +1,6 @@
 node (){
   stage('SCM Checkout'){
-    git 'https://github.com/Lakshmi2997/Sampletest/new/main'
+    git clone 'https://github.com/Lakshmi2997/Sampletest/new/main'
     }
     stage('maven build'){
       sh 'mvn package'
