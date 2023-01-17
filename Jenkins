@@ -1,6 +1,8 @@
-node (){
-  stage('SCM Checkout'){
-    git clone 'https://github.com/Lakshmi2997/Sampletest/new/main'
-    }
-    
+node(){
+  stage("Git chekout"){
+    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'gitcreds', url: 'https://github.com/Lakshmi2997/Sampletest.git']])
+  }
+  stage("Maven Build"){
+  sh "mvn package"
+  }
 }
